@@ -21,5 +21,28 @@ namespace ShopShoes.Controllers
             var blogDetail = _blog.BlogDetail(CategoryId, ProductName);
             return Ok(blogDetail);
         }
+        // GET api/<Blog>/5
+        [HttpGet("RecentPost")]
+        public IActionResult GetRecentPost(int CategoryId = 6)
+        {
+            var blogs = _blog.RecentPost(CategoryId);
+            return Ok(blogs);
+        }
+
+        // GET api/<Blog>/5
+        [HttpGet("PopularPost")]
+        public IActionResult GetPopularPost(int CategoryId = 6)
+        {
+            var blogs = _blog.PopularPost(CategoryId);
+            return Ok(blogs);
+        }
+
+        // GET api/<Blog>/5
+        [HttpGet("PopularAuthor")]
+        public IActionResult GetPopularAuthor(int CategoryId = 6)
+        {
+            var blogs = _blog.PopularAuthor(CategoryId);
+            return Ok(blogs);
+        }
     }
 }
