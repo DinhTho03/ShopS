@@ -2231,11 +2231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\New folder (2)\\WebShopShoes\\WebShopShoes\\WebShopShoes.csproj",
+      "projectUniqueName": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\ShopShoes2\\WebShopShoes\\WebShopShoes.csproj",
       "projectName": "WebShopShoes",
-      "projectPath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\New folder (2)\\WebShopShoes\\WebShopShoes\\WebShopShoes.csproj",
+      "projectPath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\ShopShoes2\\WebShopShoes\\WebShopShoes.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\New folder (2)\\WebShopShoes\\WebShopShoes\\obj\\",
+      "outputPath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\ShopShoes2\\WebShopShoes\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2xmFi71I5qEoKuzw0oM+gj7AFEpbAZeCha7Q7l1BDP78beshL6oUJutLXC8iYNKVrNk49QeMccnYJbTbb1RTdQ==",
+  "dgSpecHash": "DJeYvRLaZLezbYb0vAkYRbR1KhCSGemJLm1aIR4bS6ggzplNeJtweMRpQmENd7KShnlnr0oY8B+iKqm92XhsmQ==",
   "success": true,
-  "projectFilePath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\New folder (2)\\WebShopShoes\\WebShopShoes\\WebShopShoes.csproj",
+  "projectFilePath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\ShopShoes2\\WebShopShoes\\WebShopShoes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
