@@ -80,11 +80,8 @@ namespace ShopShoes.Service.HomePage
                                 where product.CateId == id
                                 select new ProductImageModel
                                 {
-                                    FeatureImage = product.ProductImages.Select(x => new ProductImageModel
-                                    {
-                                        FeatureImage = x.FeatureImage
-                                    }).Take(6).ToList()
-                                }).ToList();
+                                    FeatureImage = product.ProductImages.Select(x => x.FeatureImage).ToList()
+                                }).Take(6).ToList();
             return productImage;
         }
 
