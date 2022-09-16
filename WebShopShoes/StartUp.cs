@@ -10,6 +10,8 @@ using ShopShoes.IService.IHomePage;
 using ShopShoes.Service.Blog;
 using ShopShoes.Service.DetailPage_Description;
 using ShopShoes.Service.HomePage;
+using WebShopShoes.IService.IShop;
+using WebShopShoes.Service.Shop;
 
 namespace ShopShoes
 {
@@ -28,6 +30,7 @@ namespace ShopShoes
             services.AddScoped<IProduct, ProductResposity>();
             services.AddScoped<IHomePage, HomePageResposity>();
             services.AddScoped<IBlog, BlogResposity>();
+            services.AddScoped<IAllProduct, AllProductResposity>();
             services.AddDbContext<ShopDbContext>(options =>
             {
                 options.UseSqlServer(_configuration.GetConnectionString("ShopShoes"));

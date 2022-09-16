@@ -16,9 +16,9 @@ namespace ShopShoes.Controllers
             _blog = blog;
         }
         [HttpGet("ProductBlog")]
-        public IActionResult GetProductBlog(int CategoryId = 6, string ProductName = "Nike")
+        public IActionResult GetProductBlog(string? search,int CategoryId = 6, string ProductName = "Nike")
         {
-            var blogDetail = _blog.BlogDetail(CategoryId, ProductName);
+            var blogDetail = _blog.BlogDetail(search,CategoryId, ProductName);
             return Ok(blogDetail);
         }
         // GET api/<Blog>/5

@@ -8,7 +8,7 @@ namespace ShopShoes.IService.IHomePage
         List<DetailProductModel> Banner(int productId);
         List<DetailProductModel> ProductCategory(int id);
         List<DetailProductModel> Trending();
-        List<ProductImageModel> ProductImage(int id);
+        //List<ProductImageModel> ProductImage(int id);
         List<ListCategory> ListCategory(int id);
 
     }

@@ -10,5 +10,6 @@ namespace ShopShoes.Model
         public double Price { get; set; }
         public string BrandName { get; set; }
         public string Description { get; set; }
+        public DateTime Create { get; set; }
     }
 }

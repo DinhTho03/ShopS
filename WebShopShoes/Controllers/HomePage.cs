@@ -35,12 +35,12 @@ namespace ShopShoes.Controllers
             var products = _homePage.Trending();
             return Ok(products);
         }
-        [HttpGet("ProductImage")]
-        public IActionResult GetProductImage(int id = 5)
-        {
-            var products = _homePage.ProductImage(id);
-            return Ok(products);
-        }
+        //[HttpGet("ProductImage")]
+        //public IActionResult GetProductImage(int id = 5)
+        //{
+        //    var products = _homePage.ProductImage(id);
+        //    return Ok(products);
+        //}
         [HttpGet("ListCategory")]
         public IActionResult GetListCategory(int id = 6)
         {

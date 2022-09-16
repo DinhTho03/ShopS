@@ -17,9 +17,9 @@ namespace ShopShoes.Controllers
         }
         // GET: api/<Blog>
         [HttpGet("GetAllBlog")]
-        public IActionResult GetAllBlog(int CategoryId = 6, int page = 1)
+        public IActionResult GetAllBlog(string? search, int CategoryId = 6, int page = 1)
         {
-            var blogs = _blog.AllBlog(CategoryId, page);
+            var blogs = _blog.AllBlog(search,CategoryId, page);
             return Ok(blogs);
         }
 

@@ -38,10 +38,7 @@ namespace ShopShoes.Service.HomePage
                         where category.CateId == id
                         select new ListCategory
                         {
-                            Image = category.ProductImages.Select(x => new ProductImageModel
-                            {
-                                FeatureImage = x.FeatureImage
-                            }).Take(1).ToList(),
+                            Image = category.ProductImages.FirstOrDefault().FeatureImage,
                             Tilte = category.Title,
                             Description = category.Description,
                             User = category.userInfos.Select(x => new ListCategory_User
@@ -53,7 +50,7 @@ namespace ShopShoes.Service.HomePage
 
                             }).ToList()
 
-                        }).Take(4);
+                        }).Take(3);
             return cate.ToList();
         }
         public List<DetailProductModel> ProductCategory(int id)
@@ -65,25 +62,22 @@ namespace ShopShoes.Service.HomePage
                                 BrandName = product.BrandName,
                                 ProductName = product.ProductName,
                                 Price = product.Price,
-                                ProductImage = product.ProductImages.Select(x => new ProductImageModel
-                                {
-                                    FeatureImage = x.FeatureImage
-                                }).Take(1)
+                                ProductImage = product.ProductImages.FirstOrDefault().FeatureImage
                             }
                            ).Take(4).ToList();
             return products;
         }
 
-        public List<ProductImageModel> ProductImage(int id)
-        {
-            var productImage = (from product in _shopDbContext.products
-                                where product.CateId == id
-                                select new ProductImageModel
-                                {
-                                    FeatureImage = product.ProductImages.Select(x => x.FeatureImage).Take(6).ToList()
-                                }).ToList();
-            return productImage;
-        }
+        //public List<ProductImageModel> ProductImage(int id)
+        //{
+        //    var productImage = (from product in _shopDbContext.products
+        //                        where product.CateId == id
+        //                        select new ProductImageModel
+        //                        {
+        //                            FeatureImage = product.ProductImages.Select(x => x.FeatureImage).Take(6).ToList()
+        //                        }).ToList();
+        //    return productImage;
+        //}
 
         public List<DetailProductModel> Trending()
         {
@@ -94,10 +88,7 @@ namespace ShopShoes.Service.HomePage
                                 BrandName = product.BrandName,
                                 ProductName = product.ProductName,
                                 Price = product.Price,
-                                ProductImage = product.ProductImages.Select(x => new ProductImageModel
-                                {
-                                    FeatureImage = x.FeatureImage
-                                }).Take(1)
+                                ProductImage = product.ProductImages.FirstOrDefault().FeatureImage
                             }
                            ).Take(2).ToList();
             return products;

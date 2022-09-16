@@ -16,16 +16,13 @@ namespace ShopShoes.Service.Blog
         {
             _shopDbContext = shopDbContext;
         }
-        public List<ListCategory> AllBlog(int CategoryId, int page)
+        public List<ListCategory> AllBlog(string? search, int CategoryId, int page)
         {
             var blogs = from blog in _shopDbContext.products
                         where blog.CateId == CategoryId
                         select new ListCategory
                         {
-                            Image = blog.ProductImages.Select(x => new ProductImageModel
-                            {
-                                FeatureImage = x.FeatureImage
-                            }).Take(1).ToList(),
+                            Image  = blog.ProductImages.FirstOrDefault().FeatureImage,
                             Description = blog.Description,
                             Style = blog.Style,
                             Tilte = blog.Title,
@@ -36,6 +33,12 @@ namespace ShopShoes.Service.Blog
                                 UserName = x.UserName
                             }).ToList()
                         };
+            // search
+            if (!string.IsNullOrEmpty(search))
+            {
+                blogs = blogs.Where(x => x.Style.Contains(search));
+            }
+
             var result = PaginatedList<ListCategory>.Create(blogs, page, page_size);
             return result;
         }
@@ -64,10 +67,7 @@ namespace ShopShoes.Service.Blog
                         {
 
                             Description = blog.Description,
-                            User = blog.userInfos.Select(x => new ListCategory_User
-                            {
-                                OrderBy = x.CommentDate,
-                            }).ToList()
+                            User = blog.userInfos.FirstOrDefault().CommentDate
                         };
             return blogs.Take(3).ToList();
         }
@@ -80,19 +80,13 @@ namespace ShopShoes.Service.Blog
                         orderby blog.CreateAt descending
                         select new ListCategory
                         {
-                            Image = blog.ProductImages.Select(x => new ProductImageModel
-                            {
-                                FeatureImage = x.FeatureImage
-                            }).Take(1).ToList(),
+                            Image = blog.ProductImages.FirstOrDefault().FeatureImage,
                             Description = blog.Description,
-                            User = blog.userInfos.Select(x => new ListCategory_User
-                            {
-                                OrderBy = x.CommentDate
-                            }).ToList()
+                            User = blog.userInfos.FirstOrDefault().CommentDate
                         };
             return blogs.Take(4).ToList();
         }
-        public List<ListCategory> BlogDetail(int CategoryId, string ProductName)
+        public List<ListCategory> BlogDetail(string? search, int CategoryId, string ProductName)
         {
             var blogs = (from blog in _shopDbContext.products
                          where blog.CateId == CategoryId && blog.ProductName == ProductName
@@ -112,6 +106,12 @@ namespace ShopShoes.Service.Blog
                                  UserName = x.UserName
                              }).ToList()
                          }).Take(1);
+            ////search
+            //if (!string.IsNullOrEmpty(search))
+            //{
+            //    blogs = blogs.Where(x => x.Style.Contains(search));
+            //}
+
             return blogs.ToList();
         }
 
