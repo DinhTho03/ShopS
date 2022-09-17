@@ -37,10 +37,7 @@ namespace ShopShoes.Service.DetailPage_Description
                             where product.CateId == id
                             select new DetailProductModel
                             {
-                                ProductImage = product.ProductImages.Select(x => new ProductImageModel
-                                {
-                                    FeatureImage = x.FeatureImage
-                                }).Take(1).ToList(),
+                                ProductImage = product.ProductImages.FirstOrDefault().FeatureImage,
                                 ProductName = product.ProductName,
                                 Title = product.Title,
                                 Price = product.Price

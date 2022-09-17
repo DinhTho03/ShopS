@@ -46,8 +46,6 @@ namespace ShopShoes.Service.HomePage
                                 Avatar = x.Avatar,
                                 OrderBy = x.CommentDate,
                                 UserName = x.UserName
-
-
                             }).ToList()
 
                         }).Take(3);

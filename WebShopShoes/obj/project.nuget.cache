@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DJeYvRLaZLezbYb0vAkYRbR1KhCSGemJLm1aIR4bS6ggzplNeJtweMRpQmENd7KShnlnr0oY8B+iKqm92XhsmQ==",
+  "dgSpecHash": "aIUBq+KBu7MgJoiiYKu+c2ox+I5e+IkcM76sdiEr8E+xMAHQHBsoVYzQZFWtODlCOQFNEIqmwJxqSkdUXAsyPw==",
   "success": true,
   "projectFilePath": "D:\\workspace\\K27-ITVLUTeam\\Project API\\Project figma\\ShopShoes2\\WebShopShoes\\WebShopShoes.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
