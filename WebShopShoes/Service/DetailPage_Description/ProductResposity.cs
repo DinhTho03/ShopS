@@ -24,6 +24,7 @@ namespace ShopShoes.Service.DetailPage_Description
                                 Price = product.Price,
                                 ProductImage = product.ProductImages.Select(x => new ProductImageModel
                                 {
+                                    Id = x.Id,
                                     FeatureImage = x.FeatureImage
                                 }).Take(5).ToList(),
                                 BrandName = product.BrandName,

@@ -96,8 +96,10 @@ namespace ShopShoes.Service.Blog
                          where blog.CateId == CategoryId && blog.ProductName == ProductName
                          select new ListCategory
                          {
+                             Id = blog.ProductId,
                              Image = blog.ProductImages.Select(x => new ProductImageModel
                              {
+                                 Id = x.Id,
                                  FeatureImage = x.FeatureImage
                              }).Take(4).ToList(),
                              Description = blog.Description,
