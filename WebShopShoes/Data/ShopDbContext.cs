@@ -2,6 +2,7 @@
 using ShopShoes.Data.DetailPage_Description.DetailPage;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using WebShopShoes.Data.Account;
 
 namespace ShopShoes.Data
 {
@@ -14,6 +15,8 @@ namespace ShopShoes.Data
         public DbSet<ProductSize> productSizes { get; set; }
         public DbSet<Size> sizes { get; set; }
         public DbSet<UserInfo> userInfos { get; set; }
+        public DbSet<AccountData> accounts{ get; set; }
+
 
 
 

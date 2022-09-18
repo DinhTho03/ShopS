@@ -19,14 +19,15 @@ namespace ShopShoes.Service.DetailPage_Description
                             where product.ProductName == username
                             select new DetailProductModel
                             {
+                                ProductId = product.ProductId,
                                 Description = product.Description,
                                 Price = product.Price,
                                 ProductImage = product.ProductImages.Select(x => new ProductImageModel
                                 {
                                     FeatureImage = x.FeatureImage
                                 }).Take(5).ToList(),
+                                BrandName = product.BrandName,
                                 ProductName = product.ProductName,
-                                Title = product.Title
                             }).Take(1);
             return products.ToList();
         }
@@ -37,6 +38,7 @@ namespace ShopShoes.Service.DetailPage_Description
                             where product.CateId == id
                             select new DetailProductModel
                             {
+                                ProductId = product.ProductId,
                                 ProductImage = product.ProductImages.FirstOrDefault().FeatureImage,
                                 ProductName = product.ProductName,
                                 Title = product.Title,

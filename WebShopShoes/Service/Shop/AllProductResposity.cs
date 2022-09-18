@@ -21,12 +21,10 @@ namespace WebShopShoes.Service.Shop
             var products = _shopDbContext.products.Where(x => x.CateId == cateId )
                 .Select( x => new DetailProductModel
                 {
+                    ProductId = x.ProductId,
                     BrandName = x.BrandName,
                     ProductName = x.ProductName,
-                    ProductImage = x.ProductImages.Select(x => new ProductImageModel
-                    {
-                        FeatureImage = x.FeatureImage
-                    }).Take(1),
+                    ProductImage = x.ProductImages.FirstOrDefault().FeatureImage,
                     Price = x.Price,
                     Create = x.CreateAt
                     

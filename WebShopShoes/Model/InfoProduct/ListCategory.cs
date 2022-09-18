@@ -2,6 +2,7 @@
 {
     public class ListCategory
     {
+        public int Id { get; set; }
         public object Image { get; set; }
         public string Tilte { get; set; }
         public string Description { get; set; }

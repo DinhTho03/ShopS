@@ -22,12 +22,14 @@ namespace ShopShoes.Service.Blog
                         where blog.CateId == CategoryId
                         select new ListCategory
                         {
+                            Id = blog.ProductId,
                             Image  = blog.ProductImages.FirstOrDefault().FeatureImage,
                             Description = blog.Description,
                             Style = blog.Style,
                             Tilte = blog.Title,
                             User = blog.userInfos.Select(x => new ListCategory_User
                             {
+                                Id = x.Id,
                                 Avatar = x.Avatar,
                                 OrderBy = x.CommentDate,
                                 UserName = x.UserName
@@ -50,6 +52,7 @@ namespace ShopShoes.Service.Blog
                         orderby blog.Articles.Value descending
                         select new ListCategory_User
                         {
+                            Id = blog.Id,
                             Avatar = blog.Avatar,
                             UserName = blog.UserName,
                             OrderBy = blog.CommentDate
@@ -65,7 +68,7 @@ namespace ShopShoes.Service.Blog
                         orderby blog.userInfos.FirstOrDefault().Articles.Value descending
                         select new ListCategory
                         {
-
+                            Id = blog.ProductId,
                             Description = blog.Description,
                             User = blog.userInfos.FirstOrDefault().CommentDate
                         };
@@ -80,6 +83,7 @@ namespace ShopShoes.Service.Blog
                         orderby blog.CreateAt descending
                         select new ListCategory
                         {
+                            Id = blog.ProductId,
                             Image = blog.ProductImages.FirstOrDefault().FeatureImage,
                             Description = blog.Description,
                             User = blog.userInfos.FirstOrDefault().CommentDate
@@ -101,6 +105,7 @@ namespace ShopShoes.Service.Blog
                              Tilte = blog.Title,
                              User = blog.userInfos.Select(x => new ListCategory_User
                              {
+                                 Id = x.Id,
                                  Avatar = x.Avatar,
                                  OrderBy = x.CommentDate,
                                  UserName = x.UserName

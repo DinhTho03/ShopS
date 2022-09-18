@@ -20,12 +20,14 @@ namespace ShopShoes.Service.HomePage
                             where product.ProductId == productId
                             select new DetailProductModel
                             {
+                                ProductId = product.ProductId,
                                 Title = product.Title,
                                 ProductName = product.ProductName,
                                 Description = product.Description,
                                 Price = product.Price,
                                 ProductImage = product.ProductImages.Select(x => new ProductImageModel
                                 {
+                                    Id = x.ProductId,
                                     FeatureImage = x.FeatureImage
                                 }).ToList()
                             }).Take(5);
@@ -38,11 +40,13 @@ namespace ShopShoes.Service.HomePage
                         where category.CateId == id
                         select new ListCategory
                         {
+                            Id = category.ProductId,
                             Image = category.ProductImages.FirstOrDefault().FeatureImage,
                             Tilte = category.Title,
                             Description = category.Description,
                             User = category.userInfos.Select(x => new ListCategory_User
                             {
+                                Id = x.Id,
                                 Avatar = x.Avatar,
                                 OrderBy = x.CommentDate,
                                 UserName = x.UserName
@@ -57,6 +61,7 @@ namespace ShopShoes.Service.HomePage
                             where product.CateId == id
                             select new DetailProductModel
                             {
+                                ProductId = product.ProductId,
                                 BrandName = product.BrandName,
                                 ProductName = product.ProductName,
                                 Price = product.Price,
@@ -83,6 +88,7 @@ namespace ShopShoes.Service.HomePage
                             orderby product.CreateAt descending
                             select new DetailProductModel
                             {
+                                ProductId = product.ProductId,
                                 BrandName = product.BrandName,
                                 ProductName = product.ProductName,
                                 Price = product.Price,

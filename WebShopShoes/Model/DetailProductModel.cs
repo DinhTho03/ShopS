@@ -4,6 +4,7 @@ namespace ShopShoes.Model
 {
     public class DetailProductModel
     {
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string Title { get; set; }
         public object ProductImage { get; set; }
