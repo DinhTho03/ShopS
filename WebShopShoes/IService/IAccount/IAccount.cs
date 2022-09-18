@@ -7,5 +7,7 @@ namespace WebShopShoes.IService.IAccount
     {
         ApiResponse Register(AccountDto accountDto);
         TokenModel Login (LoginDto login);
+        Task<bool> UserAlreadyExist(AccountDto accountDto);
+        Task<bool> UserAlreadyExistsForLogin(LoginDto login);
     }
 }

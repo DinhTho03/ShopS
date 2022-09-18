@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopShoes.Data.DetailPage_Description.DetailPage
 {
+    [Table("UserInfo")]
     public class UserInfo
     {
         public int Id { get; set; }

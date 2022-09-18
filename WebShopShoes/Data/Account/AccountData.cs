@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebShopShoes.Data.Account
 {
+    [Table("Account")]
     public class AccountData
     {
         [Key]

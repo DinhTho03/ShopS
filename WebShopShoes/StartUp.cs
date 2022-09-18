@@ -1,6 +1,8 @@
 ﻿
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ShopShoes.Controllers;
 using ShopShoes.Data;
@@ -10,7 +12,12 @@ using ShopShoes.IService.IHomePage;
 using ShopShoes.Service.Blog;
 using ShopShoes.Service.DetailPage_Description;
 using ShopShoes.Service.HomePage;
+using Swashbuckle.AspNetCore.Filters;
+using System.Text;
+using System.Text.Json.Serialization;
+using WebShopShoes.IService.IAccount;
 using WebShopShoes.IService.IShop;
+using WebShopShoes.Service.Account;
 using WebShopShoes.Service.Shop;
 
 namespace ShopShoes
@@ -31,14 +38,38 @@ namespace ShopShoes
             services.AddScoped<IHomePage, HomePageResposity>();
             services.AddScoped<IBlog, BlogResposity>();
             services.AddScoped<IAllProduct, AllProductResposity>();
+            services.AddScoped<IAccount, AccountRepository>();
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddDbContext<ShopDbContext>(options =>
             {
                 options.UseSqlServer(_configuration.GetConnectionString("ShopShoes"));
             });
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyWebApiApp", Version = "v1" });
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+                options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        //ký Token
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:SecretKey").Value)),
+                        // tự cấp token
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowOrigin",

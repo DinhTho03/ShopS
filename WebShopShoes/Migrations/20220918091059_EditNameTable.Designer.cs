@@ -9,11 +9,11 @@ using ShopShoes.Data;
 
 #nullable disable
 
-namespace WebShopShoes.Migrations
+namespace ShopShoes.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20220915130752_CreateData")]
-    partial class CreateData
+    [Migration("20220918091059_EditNameTable")]
+    partial class EditNameTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -257,7 +257,43 @@ namespace WebShopShoes.Migrations
 
                     b.HasIndex("Products");
 
-                    b.ToTable("userInfos");
+                    b.ToTable("UserInfo");
+                });
+
+            modelBuilder.Entity("WebShopShoes.Data.Account.AccountData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isAdmin")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Account");
                 });
 
             modelBuilder.Entity("ShopShoes.Data.DetailPage_Description.DetailPage.Product", b =>

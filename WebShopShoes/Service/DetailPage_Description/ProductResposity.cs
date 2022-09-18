@@ -22,11 +22,7 @@ namespace ShopShoes.Service.DetailPage_Description
                                 ProductId = product.ProductId,
                                 Description = product.Description,
                                 Price = product.Price,
-                                ProductImage = product.ProductImages.Select(x => new ProductImageModel
-                                {
-                                    Id = x.Id,
-                                    FeatureImage = x.FeatureImage
-                                }).Take(5).ToList(),
+                                ProductImage = product.ProductImages.FirstOrDefault().FeatureImage,
                                 BrandName = product.BrandName,
                                 ProductName = product.ProductName,
                             }).Take(1);

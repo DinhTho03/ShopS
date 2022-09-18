@@ -25,12 +25,8 @@ namespace ShopShoes.Service.HomePage
                                 ProductName = product.ProductName,
                                 Description = product.Description,
                                 Price = product.Price,
-                                ProductImage = product.ProductImages.Select(x => new ProductImageModel
-                                {
-                                    Id = x.Id,
-                                    FeatureImage = x.FeatureImage
-                                }).ToList()
-                            }).Take(5);
+                                ProductImage = product.ProductImages.FirstOrDefault().FeatureImage
+                            }).Take(1);
             return products.ToList();
         }
 

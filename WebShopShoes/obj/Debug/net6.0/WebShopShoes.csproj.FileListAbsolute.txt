@@ -182,3 +182,8 @@ D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\obj
 D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\obj\Debug\net6.0\WebShopShoes.genruntimeconfig.cache
 D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\obj\Debug\net6.0\ref\WebShopShoes.dll
 D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\Scrutor.dll
+D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+D:\workspace\K27-ITVLUTeam\Project API\Project figma\ShopShoes2\WebShopShoes\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

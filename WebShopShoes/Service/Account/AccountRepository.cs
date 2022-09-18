@@ -1,4 +1,5 @@
 ﻿using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -91,7 +92,15 @@ namespace WebShopShoes.Service.Account
                 Message = "Sign Up Success"
             };
 
+        }
+        public async Task<bool> UserAlreadyExist(AccountDto accountDto)
+        {
+            return await _shopDbContext.accounts.AnyAsync(p => p.Username == accountDto.Username);
+        }
 
+        public async Task<bool> UserAlreadyExistsForLogin(LoginDto login)
+        {
+            return await _shopDbContext.accounts.AnyAsync(p => p.Username == login.UserName);
         }
     }
 }

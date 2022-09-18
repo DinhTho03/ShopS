@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopShoes.Data;
 
@@ -11,9 +12,10 @@ using ShopShoes.Data;
 namespace ShopShoes.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220918090940_DataAccount")]
+    partial class DataAccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -255,7 +257,7 @@ namespace ShopShoes.Migrations
 
                     b.HasIndex("Products");
 
-                    b.ToTable("UserInfo");
+                    b.ToTable("userInfos");
                 });
 
             modelBuilder.Entity("WebShopShoes.Data.Account.AccountData", b =>
@@ -291,7 +293,7 @@ namespace ShopShoes.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Account");
+                    b.ToTable("accounts");
                 });
 
             modelBuilder.Entity("ShopShoes.Data.DetailPage_Description.DetailPage.Product", b =>
