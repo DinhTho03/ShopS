@@ -38,7 +38,7 @@ namespace ShopShoes.Service.HomePage
                         {
                             Id = category.ProductId,
                             Image = category.ProductImages.FirstOrDefault().FeatureImage,
-                            Tilte = category.Title,
+                            Title = category.Title,
                             Description = category.Description,
                             User = category.userInfos.Select(x => new ListCategory_User
                             {

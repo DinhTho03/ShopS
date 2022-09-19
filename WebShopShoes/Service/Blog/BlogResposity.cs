@@ -26,7 +26,7 @@ namespace ShopShoes.Service.Blog
                             Image  = blog.ProductImages.FirstOrDefault().FeatureImage,
                             Description = blog.Description,
                             Style = blog.Style,
-                            Tilte = blog.Title,
+                            Title = blog.Title,
                             User = blog.userInfos.Select(x => new ListCategory_User
                             {
                                 Id = x.Id,
@@ -104,7 +104,7 @@ namespace ShopShoes.Service.Blog
                              }).Take(4).ToList(),
                              Description = blog.Description,
                              Style = blog.Style,
-                             Tilte = blog.Title,
+                             Title = blog.Title,
                              User = blog.userInfos.Select(x => new ListCategory_User
                              {
                                  Id = x.Id,
